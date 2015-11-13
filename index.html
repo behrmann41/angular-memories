@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="memoriesApp">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Memories</title>
     <link rel="stylesheet" href="https://bootswatch.com/lumen/bootstrap.min.css">
     <link rel="stylesheet" href="css/app.css">
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js'></script>
@@ -10,8 +10,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src='js/app.js'></script>
+    <script type="text/javascript" src='js/controllers.js'></script>
   </head>
-  <body>
-
+  <body ng-controller='MemController'>
+    <div class="container">
+      <h1>{{title}}</h1>
+      <div ng-repeat="memory in memories">
+        <h3>Memory</h3>
+        <p>
+          Old Days: {{memory.attributes.old_days}}
+        </p>
+        <p>
+          These Days: {{memory.attributes.these_days}}
+        </p>
+        <p>
+          In the year: {{memory.attributes.year}}
+        </p>
+        <br>
+      </div>
+    </div>
   </body>
 </html>
