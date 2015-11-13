@@ -22,4 +22,8 @@ app.controller('MemController', function ($scope, $http){
   $scope.these_days='';
   $scope.year='';
   }
+  $http.get('http://g12-ian-behrmann-memories.cfapps.io/api/v1/memories/years').then(function(response){
+    console.log(response)
+    $scope.memoryYears = response.data.data
+  })
 })
