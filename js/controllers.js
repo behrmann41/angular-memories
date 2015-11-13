@@ -1,7 +1,6 @@
-app.controller('MemController', function ($scope, $http){
+app.controller('MemController', function ($scope, $http, $routeParams){
   $scope.title = "Angular Memories"
   $http.get('http://g12-ian-behrmann-memories.cfapps.io/api/v1/memories').then(function(response){
-    console.log(response.data.data)
     $scope.memories = response.data.data;
   })
   $scope.submit = function (){
@@ -14,7 +13,6 @@ app.controller('MemController', function ($scope, $http){
         }
     }
     $http.post('http://g12-ian-behrmann-memories.cfapps.io/api/v1/memories', {data: res}).then(function(response){
-      console.log(response.data)
     }, function(){
         console.log('error');
     });
@@ -23,7 +21,11 @@ app.controller('MemController', function ($scope, $http){
   $scope.year='';
   }
   $http.get('http://g12-ian-behrmann-memories.cfapps.io/api/v1/memories/years').then(function(response){
-    console.log(response)
     $scope.memoryYears = response.data.data
+  })
+  $http.get('http://g12-ian-behrmann-memories.cfapps.io/api/v1/memories/' + $routeParams.year).then(function(response){
+    console.log(response.data.data)
+    $scope.yearData = response.data.data
+    $scope.year = $routeParams.year;
   })
 })

@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Memories from <strong>{{year}}</strong></h1>
+  <div ng-repeat="memory in yearData track by $index">
+    <h2>When I was younger:</h2>
+      <p>{{memory.attributes.old_days}}</p>
+    <h3>Nowadays:</h3>
+      <p>{{memory.attributes.these_days}}</p>
+  </div>
+  <a href="/">Home</a>
+</div>
