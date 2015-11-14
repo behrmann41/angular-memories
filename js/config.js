@@ -7,6 +7,6 @@ app.config(function($locationProvider, $routeProvider){
     })
     .when('/years/:year', {
       templateUrl: '/partials/year.html',
-      controller: 'MemController'
+      controller: 'yearController'
     })
 })
